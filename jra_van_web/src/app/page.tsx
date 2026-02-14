@@ -90,6 +90,7 @@ export default async function Home() {
               <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">距離</th>
               <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">コース</th>
               <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">出馬表</th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">指数</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
@@ -109,11 +110,19 @@ export default async function Home() {
                     表示
                   </Link>
                 </td>
+                <td className="px-4 py-3 whitespace-nowrap text-sm">
+                  <Link
+                    href={`/analysis/${race.race_id}`}
+                    className="text-blue-600 hover:text-blue-800 underline"
+                  >
+                    分析
+                  </Link>
+                </td>
               </tr>
             ))}
             {races.length === 0 && (
               <tr>
-                <td colSpan={7} className="px-4 py-4 text-center text-gray-500">
+                <td colSpan={8} className="px-4 py-4 text-center text-gray-500">
                   データがありません。
                 </td>
               </tr>

@@ -1,2 +1,4 @@
 pywin32
 google-cloud-bigquery
+pandas
+numpy

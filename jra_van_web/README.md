@@ -23,6 +23,12 @@ Required tables in the serving dataset:
 - `serving_races`
 - `serving_entries`
 
+Required view/table in the analysis dataset:
+- `analysis_view`
+
+Optional (recommended) in the analysis dataset:
+- `speed_index_master` (for original-style speed index display)
+
 ## Security Notes
 
 - Do not store service-account JSON files in this repository.
@@ -38,9 +44,30 @@ npm run dev
 
 Open `http://localhost:3000`.
 
+Main routes:
+- `/`: レース一覧
+- `/racecard/[raceId]`: 出馬表
+- `/analysis/[raceId]`: 指数分析
+
+API route:
+- `/api/races/[raceId]/analysis`
+
 ## Quality Checks
 
 ```bash
 npm run lint
 npm run build
 ```
+
+## Build Speed Index Table (Recommended)
+
+Run from `jra_van_loader` to refresh the index master used by `/analysis/[raceId]`:
+
+```bash
+cd ../jra_van_loader
+python build_speed_index.py --project horse-racing-m1 --dataset jra_common --location asia-northeast1
+```
+
+Note:
+- `jra-web-viewer` should stay read-only for web serving.
+- Run `build_speed_index.py` with a separate writer account (for example `python-upload`) that has write permission on `jra_common`.
