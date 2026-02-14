@@ -1,0 +1,27 @@
+# Secrets
+**/credentials.json
+**/service-account*.json
+**/*.key
+**/*.pem
+
+# Local environment files
+**/.env.local
+**/.env.*.local
+!**/.env.example
+
+# Dependency and build outputs
+**/node_modules/
+**/.next/
+**/dist/
+**/build/
+**/__pycache__/
+**/*.pyc
+
+# Local logs
+**/*.log
+
+# Local loader outputs (raw dumps)
+jra_van_loader/output_v2/
+jra_van_loader/output_v3/
+jra_van_loader/output_test/
+jra_van_loader/output_data/

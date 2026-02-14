@@ -1,0 +1,11 @@
+title = "warped-space gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Generated docs and archives can contain large historical payloads"
+paths = [
+  '''^docs/.*\.resolved(\.\d+)?$''',
+  '''^archive/'''
+]
